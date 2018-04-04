@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NeX-2W-AWq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0JN-XJ-yaA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -33,27 +33,32 @@
                                     <navigationItem title="Title" id="Itb-rV-f8d"/>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FKW-Ue-h77">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVJ-rX-ht0">
+                                <rect key="frame" x="16" y="64" width="38" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="ICM-md-W9k"/>
+                                    <constraint firstAttribute="height" constant="30" id="cEj-8w-47P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FKW-Ue-h77">
                                 <rect key="frame" x="62" y="64" width="298" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="textboxpressed:" destination="0JN-XJ-yaA" eventType="editingDidBegin" id="h1r-Lk-MRr"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVJ-rX-ht0">
-                                <rect key="frame" x="16" y="64" width="38" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="FKW-Ue-h77" secondAttribute="trailing" constant="15" id="8e4-WD-Znu"/>
                             <constraint firstItem="XXd-5g-CuQ" firstAttribute="leading" secondItem="hEs-t0-rOR" secondAttribute="leading" id="JaI-0Y-KqL"/>
                             <constraint firstItem="FKW-Ue-h77" firstAttribute="leading" secondItem="HVJ-rX-ht0" secondAttribute="trailing" constant="8" id="OCj-bx-ZYe"/>
+                            <constraint firstItem="HVJ-rX-ht0" firstAttribute="leading" secondItem="hEs-t0-rOR" secondAttribute="leadingMargin" id="SuW-to-Sg2"/>
                             <constraint firstItem="HVJ-rX-ht0" firstAttribute="top" secondItem="XXd-5g-CuQ" secondAttribute="bottom" constant="20" id="TaI-P9-KTD"/>
                             <constraint firstItem="XXd-5g-CuQ" firstAttribute="top" secondItem="hEs-t0-rOR" secondAttribute="top" id="i9D-NQ-MWR"/>
                             <constraint firstAttribute="trailing" secondItem="XXd-5g-CuQ" secondAttribute="trailing" id="iVW-7L-2dg"/>
