@@ -12,15 +12,20 @@ class TestViewController: UIViewController {
     
     @IBOutlet weak var contentTextField: UITextField!
     
+    @IBOutlet weak var centerPopupContraint: NSLayoutConstraint!
+    @IBOutlet weak var calendarView: UIView!
+    @IBOutlet weak var fullScreenButton: UIButton!
+    
+    
     
     let datePicker = UIDatePicker()
-    
-    
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        calendarView.layer.cornerRadius = 10
+        calendarView.layer.masksToBounds = true
         
         contentTextField.becomeFirstResponder()
         
@@ -58,25 +63,35 @@ class TestViewController: UIViewController {
     
     let spaceOne = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         
-    let tomorrow = UIBarButtonItem(title: "Tomorrow", style: .plain, target: self, action: #selector(self.tomorrowClicked))
+    //calendar item
+        
+    let calendar = UIBarButtonItem(image: UIImage(named:"glyphicons-46-calendar"), style: .plain, target: self, action: #selector(self.tomorrowClicked))
         
     let spaceTwo =  UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+     
+    //alarm item
         
-    let done = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.doneClicked))
+    let alarm = UIBarButtonItem(image: UIImage(named:"glyphicons-54-alarm"), style: .plain, target: self, action: #selector(self.doneClicked))
         
     let spaceThree = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         
-    let calendarOne = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add , target: self, action: #selector(self.calendarClicked))
+        //star item
+        
+    let star = UIBarButtonItem(image: UIImage(named:"glyphicons-49-star-empty"), style: .plain, target: self, action: #selector(self.calendarClicked))
        
     let spaceFour =  UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        
+        // image item
        
-    let calendarTwo =  UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add , target: self, action: #selector(self.calendarReminderClicked))
+    let camera =  UIBarButtonItem(image: UIImage(named:"glyphicons-12-camera"), style: .plain, target: self, action: #selector(self.calendarReminderClicked))
     
     let spaceFive =  UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-      
-    let pin =  UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add , target: self, action: #selector(self.pinClicked))
         
-    toolBar.setItems([today, spaceOne, tomorrow, spaceTwo, done, spaceThree, calendarOne, spaceFour, calendarTwo, spaceFive, pin], animated: false)
+        // add
+      
+    let add =  UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add , target: self, action: #selector(self.pinClicked))
+        
+    toolBar.setItems([today, spaceOne, calendar, spaceTwo, alarm, spaceThree, star, spaceFour, camera, spaceFive, add], animated: false)
         
         
     
@@ -170,7 +185,7 @@ class TestViewController: UIViewController {
     //    contentTextField.inputAccessoryView = toolBar
         
         
-        
+    
         
         
         
@@ -206,8 +221,39 @@ class TestViewController: UIViewController {
         }
         
         var _: Bool = (sender.style == .done)
+        
+        centerPopupContraint.constant = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.fullScreenButton.alpha = 0.3
+            self.contentTextField.resignFirstResponder()
+            })
+        
+        
     
     }
+    
+    @IBAction func calendarPopupSubmit(_ sender: Any) {
+        centerPopupContraint.constant = -600
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.fullScreenButton.alpha = 0
+            self.contentTextField.becomeFirstResponder()
+        })
+        
+        
+    }
+    
+    @IBAction func calendarPopupClose(_ sender: Any) {
+        centerPopupContraint.constant = -600
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.fullScreenButton.alpha = 0
+            self.contentTextField.becomeFirstResponder()
+        })
+    }
+    
+    
     
     @IBAction func textboxpressed(_ sender: Any) {
     }

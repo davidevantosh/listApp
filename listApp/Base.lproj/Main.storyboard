@@ -30,21 +30,28 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXd-5g-CuQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="Itb-rV-f8d"/>
+                                    <navigationItem id="Itb-rV-f8d"/>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vr0-KZ-YNc">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="calendarPopupClose:" destination="0JN-XJ-yaA" eventType="touchUpInside" id="2Bw-93-WY1"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVJ-rX-ht0">
-                                <rect key="frame" x="16" y="64" width="38" height="30"/>
+                                <rect key="frame" x="16" y="64" width="38" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="38" id="ICM-md-W9k"/>
-                                    <constraint firstAttribute="height" constant="30" id="cEj-8w-47P"/>
+                                    <constraint firstAttribute="height" constant="21" id="cEj-8w-47P"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FKW-Ue-h77">
-                                <rect key="frame" x="62" y="64" width="298" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FKW-Ue-h77">
+                                <rect key="frame" x="61" y="64" width="298" height="21"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -52,22 +59,88 @@
                                     <action selector="textboxpressed:" destination="0JN-XJ-yaA" eventType="editingDidBegin" id="h1r-Lk-MRr"/>
                                 </connections>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hdv-Yn-YxO">
+                                <rect key="frame" x="24" y="-387" width="327" height="240"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sW7-t3-cOM">
+                                        <rect key="frame" x="0.0" y="197" width="327" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="43" id="34v-2k-sBj"/>
+                                            <constraint firstAttribute="width" constant="327" id="i2X-Bj-6DI"/>
+                                        </constraints>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="calendarPopupSubmit:" destination="0JN-XJ-yaA" eventType="touchUpInside" id="Ent-dp-oe1"/>
+                                        </connections>
+                                    </button>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6h-9r-KwX">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="44"/>
+                                        <items>
+                                            <navigationItem title="Due on" largeTitleDisplayMode="never" id="vES-WG-lUw">
+                                                <barButtonItem key="leftBarButtonItem" title="Item" image="glyphicons-208-remove" id="IqX-xv-wu5">
+                                                    <connections>
+                                                        <action selector="calendarPopupClose:" destination="0JN-XJ-yaA" id="zaT-9w-Wqh"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="W8m-8h-TNd">
+                                        <rect key="frame" x="0.0" y="44" width="327" height="145"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="145" id="VPr-9S-8Wy"/>
+                                            <constraint firstAttribute="width" constant="327" id="XuU-Ik-POW"/>
+                                        </constraints>
+                                        <date key="date" timeIntervalSinceReferenceDate="544580339.28456604">
+                                            <!--2018-04-05 00:18:59 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="W8m-8h-TNd" firstAttribute="top" secondItem="C6h-9r-KwX" secondAttribute="bottom" id="3EU-Dx-4QR"/>
+                                    <constraint firstItem="W8m-8h-TNd" firstAttribute="top" secondItem="C6h-9r-KwX" secondAttribute="bottom" id="9Em-QI-Ru0"/>
+                                    <constraint firstAttribute="bottom" secondItem="sW7-t3-cOM" secondAttribute="bottom" id="9fA-Tg-JcG"/>
+                                    <constraint firstItem="C6h-9r-KwX" firstAttribute="top" secondItem="Hdv-Yn-YxO" secondAttribute="top" id="IYI-Bg-Wn7"/>
+                                    <constraint firstAttribute="width" constant="327" id="JEH-Xt-D5c"/>
+                                    <constraint firstItem="sW7-t3-cOM" firstAttribute="leading" secondItem="Hdv-Yn-YxO" secondAttribute="leading" id="Jjr-KU-XXq"/>
+                                    <constraint firstItem="W8m-8h-TNd" firstAttribute="leading" secondItem="Hdv-Yn-YxO" secondAttribute="leading" id="OVw-zf-oKz"/>
+                                    <constraint firstAttribute="trailing" secondItem="sW7-t3-cOM" secondAttribute="trailing" id="R7H-fK-RQN"/>
+                                    <constraint firstItem="C6h-9r-KwX" firstAttribute="leading" secondItem="Hdv-Yn-YxO" secondAttribute="leading" id="bM1-rs-95i"/>
+                                    <constraint firstAttribute="trailing" secondItem="W8m-8h-TNd" secondAttribute="trailing" id="eHq-Zj-OuW"/>
+                                    <constraint firstAttribute="height" constant="240" id="iCm-7D-HPY"/>
+                                    <constraint firstAttribute="trailing" secondItem="W8m-8h-TNd" secondAttribute="trailing" id="mO1-dI-m6x"/>
+                                    <constraint firstAttribute="trailing" secondItem="C6h-9r-KwX" secondAttribute="trailing" id="rUJ-SB-i3E"/>
+                                    <constraint firstItem="W8m-8h-TNd" firstAttribute="leading" secondItem="Hdv-Yn-YxO" secondAttribute="leading" id="y6Y-7T-DL7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="FKW-Ue-h77" secondAttribute="trailing" constant="15" id="8e4-WD-Znu"/>
+                            <constraint firstAttribute="trailing" secondItem="FKW-Ue-h77" secondAttribute="trailing" constant="16" id="8e4-WD-Znu"/>
                             <constraint firstItem="XXd-5g-CuQ" firstAttribute="leading" secondItem="hEs-t0-rOR" secondAttribute="leading" id="JaI-0Y-KqL"/>
-                            <constraint firstItem="FKW-Ue-h77" firstAttribute="leading" secondItem="HVJ-rX-ht0" secondAttribute="trailing" constant="8" id="OCj-bx-ZYe"/>
+                            <constraint firstAttribute="trailing" secondItem="Vr0-KZ-YNc" secondAttribute="trailing" id="MdU-Y7-I1u"/>
+                            <constraint firstItem="FKW-Ue-h77" firstAttribute="leading" secondItem="HVJ-rX-ht0" secondAttribute="trailing" constant="7" id="OCj-bx-ZYe"/>
                             <constraint firstItem="HVJ-rX-ht0" firstAttribute="leading" secondItem="hEs-t0-rOR" secondAttribute="leadingMargin" id="SuW-to-Sg2"/>
                             <constraint firstItem="HVJ-rX-ht0" firstAttribute="top" secondItem="XXd-5g-CuQ" secondAttribute="bottom" constant="20" id="TaI-P9-KTD"/>
+                            <constraint firstItem="6TS-UV-ZIV" firstAttribute="top" secondItem="Vr0-KZ-YNc" secondAttribute="bottom" id="UFV-7e-hkX"/>
+                            <constraint firstItem="Vr0-KZ-YNc" firstAttribute="top" secondItem="XXd-5g-CuQ" secondAttribute="bottom" id="Yce-Zi-Xrb"/>
+                            <constraint firstItem="Vr0-KZ-YNc" firstAttribute="leading" secondItem="hEs-t0-rOR" secondAttribute="leading" id="cnp-9a-Dir"/>
+                            <constraint firstItem="Hdv-Yn-YxO" firstAttribute="centerX" secondItem="hEs-t0-rOR" secondAttribute="centerX" id="h1t-U5-1VH"/>
                             <constraint firstItem="XXd-5g-CuQ" firstAttribute="top" secondItem="hEs-t0-rOR" secondAttribute="top" id="i9D-NQ-MWR"/>
                             <constraint firstAttribute="trailing" secondItem="XXd-5g-CuQ" secondAttribute="trailing" id="iVW-7L-2dg"/>
+                            <constraint firstItem="Hdv-Yn-YxO" firstAttribute="centerY" secondItem="hEs-t0-rOR" secondAttribute="centerY" constant="-600" id="iyo-XQ-JRW"/>
                             <constraint firstItem="FKW-Ue-h77" firstAttribute="top" secondItem="XXd-5g-CuQ" secondAttribute="bottom" constant="20" id="mt8-9h-kWz"/>
                             <constraint firstItem="HVJ-rX-ht0" firstAttribute="leading" secondItem="hEs-t0-rOR" secondAttribute="leadingMargin" id="rfZ-00-yRw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="calendarView" destination="Hdv-Yn-YxO" id="gMz-ND-0Sc"/>
+                        <outlet property="centerPopupContraint" destination="iyo-XQ-JRW" id="esR-bH-ySz"/>
                         <outlet property="contentTextField" destination="FKW-Ue-h77" id="e7O-DW-IgV"/>
+                        <outlet property="fullScreenButton" destination="Vr0-KZ-YNc" id="r9C-LX-q5D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIr-yu-5FW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1111,11 +1184,12 @@ You can reach me via the following outlets:</string>
     <resources>
         <image name="glyphicons-138-cogwheels" width="34" height="27"/>
         <image name="glyphicons-191-plus-sign" width="25" height="25"/>
+        <image name="glyphicons-208-remove" width="18" height="18"/>
         <image name="glyphicons-225-chevron-left" width="14" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LVp-U8-7Pk"/>
         <segue reference="idS-mE-70H"/>
-        <segue reference="Ms1-it-c9I"/>
+        <segue reference="r6v-3a-8ha"/>
     </inferredMetricsTieBreakers>
 </document>
