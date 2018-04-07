@@ -59,8 +59,8 @@
                                     <action selector="textboxpressed:" destination="0JN-XJ-yaA" eventType="editingDidBegin" id="h1r-Lk-MRr"/>
                                 </connections>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hdv-Yn-YxO">
-                                <rect key="frame" x="24" y="-387" width="327" height="240"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hdv-Yn-YxO">
+                                <rect key="frame" x="24" y="213.5" width="327" height="327"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sW7-t3-cOM">
                                         <rect key="frame" x="0.0" y="197" width="327" height="43"/>
@@ -87,7 +87,7 @@
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="W8m-8h-TNd">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="W8m-8h-TNd">
                                         <rect key="frame" x="0.0" y="44" width="327" height="145"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="145" id="VPr-9S-8Wy"/>
@@ -131,7 +131,7 @@
                             <constraint firstItem="Hdv-Yn-YxO" firstAttribute="centerX" secondItem="hEs-t0-rOR" secondAttribute="centerX" id="h1t-U5-1VH"/>
                             <constraint firstItem="XXd-5g-CuQ" firstAttribute="top" secondItem="hEs-t0-rOR" secondAttribute="top" id="i9D-NQ-MWR"/>
                             <constraint firstAttribute="trailing" secondItem="XXd-5g-CuQ" secondAttribute="trailing" id="iVW-7L-2dg"/>
-                            <constraint firstItem="Hdv-Yn-YxO" firstAttribute="centerY" secondItem="hEs-t0-rOR" secondAttribute="centerY" constant="-600" id="iyo-XQ-JRW"/>
+                            <constraint firstItem="Hdv-Yn-YxO" firstAttribute="centerY" secondItem="hEs-t0-rOR" secondAttribute="centerY" id="iyo-XQ-JRW"/>
                             <constraint firstItem="FKW-Ue-h77" firstAttribute="top" secondItem="XXd-5g-CuQ" secondAttribute="bottom" constant="20" id="mt8-9h-kWz"/>
                             <constraint firstItem="HVJ-rX-ht0" firstAttribute="leading" secondItem="hEs-t0-rOR" secondAttribute="leadingMargin" id="rfZ-00-yRw"/>
                         </constraints>
