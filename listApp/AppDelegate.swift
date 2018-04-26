@@ -11,28 +11,41 @@ import CoreData
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, NSFetchedResultsControllerDelegate {
     
     var window: UIWindow?
     let defaults = UserDefaults.standard
     
     var myViewController: ItemDetailsVC!
     
+    var testVC: TestViewController!
+    var itemToEdit: Item?
+    var controller: NSFetchedResultsController<Item>!
+    
+
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {(accepted, error) in
             if !accepted {
                print("Notification access denied.")
             }
         }
         
-        let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
+        let action = UNNotificationAction(identifier: "remindLater", title: "Remind me later", options: [])
+        let actionTwo = UNNotificationAction(identifier: "done", title: "Done", options: [.destructive])
+        let category = UNNotificationCategory(identifier: "myCategory", actions: [action,actionTwo], intentIdentifiers: [], options: [])
     UNUserNotificationCenter.current().setNotificationCategories([category])
+        
      
         return true
     }
+    
+    
+    
+    
     
     
     
@@ -98,6 +111,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      //   NotificationCenter.default.post(name: Notification.Name(rawValue: "TodoListShouldRefresh"), object: self)
         
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        application.applicationIconBadgeNumber = 0
+        
+        
+        
+        
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -151,8 +171,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
+   
 }
+  //  extension AppDelegate: UNUserNotificationCenterDelegate {
+ //   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+  //      if response.actionIdentifier == "done" {
+   //         context.delete(itemToEdit!)
+   //         saveContext()
+   //     }
+  //  }
+    
+//}
+
 
 
 

@@ -64,6 +64,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
   
    override func viewDidLoad() {
         super.viewDidLoad()
+    
+ 
+    
 
     
     let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture(gesture:)))

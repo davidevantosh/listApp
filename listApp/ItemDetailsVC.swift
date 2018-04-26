@@ -11,7 +11,7 @@ import CoreData
 import UserNotifications
 import GoogleMobileAds
 
-class ItemDetailsVC: UITableViewController, UINavigationControllerDelegate, UITextFieldDelegate, GADBannerViewDelegate {
+class ItemDetailsVC: UITableViewController, UINavigationControllerDelegate, UITextFieldDelegate, GADBannerViewDelegate, UNUserNotificationCenterDelegate {
     
     
     
@@ -56,7 +56,7 @@ class ItemDetailsVC: UITableViewController, UINavigationControllerDelegate, UITe
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
+        UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
             if !accepted {
                 print("Notification access denied.")
@@ -224,6 +224,15 @@ class ItemDetailsVC: UITableViewController, UINavigationControllerDelegate, UITe
             return super.tableView(tableView, heightForRowAt: indexPath)
             }
         }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+             if response.actionIdentifier == "done" {
+                 context.delete(itemToEdit!)
+                 adt.saveContext()
+    }
+        completionHandler()
     }
     
 
